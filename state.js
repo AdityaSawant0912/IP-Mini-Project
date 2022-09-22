@@ -4,6 +4,7 @@
 class State {
     constructor(id, isStart = false, isFinal = false){
         this.id = id;
+        this.show = 0;
         this.isStart = isStart;
         this.isFinal = isFinal;
         this.x = 0;
@@ -29,11 +30,11 @@ class State {
         fill(200);
         circle(this.x, this.y, RAD);
         fill(255);
-        textSize(RAD-15);
+        textSize(RAD-25);
         textAlign(CENTER);
         fill(0);
         noStroke()
-        text(`q${this.id}`, this.x, this.y + 10)
+        text(`q${this.show}`, this.x, this.y + 7)
         pop();
         
     }

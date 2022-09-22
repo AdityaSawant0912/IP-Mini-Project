@@ -9,7 +9,7 @@ let cnv;
 let wasPressed = false;
 let diff = [0, 0];
 // let expression = "(((0+1)*.1.0) +((0.0)*.(1.1)*))"
-let expression = "a*";
+let expression = "a+b";
 
 
 function drawArrow(base, vec) {
@@ -30,6 +30,7 @@ function setup() {
   cnv = createCanvas(800, 800);
   cnv.mousePressed(mousePressed1)
   state1 = new State(0, false, false);
+  // state1.show = 8
   state1.x = 200;
   state1.y = 200;
   expression = InfixToPostfix(expression)
@@ -39,6 +40,7 @@ function setup() {
   enfa.calculateTree();
   console.log(enfa.tree);
   console.log(enfa.connections);
+  enfa.generateTree();
   
 }
 
@@ -62,7 +64,11 @@ function draw() {
   }
   translate(diff[0], diff[1])
 
-  state1.draw(400, 400);
+  // state1.draw(400, 400);
   // console.log(mousePressed);
+  
+  enfa.finalTree.forEach(state => {
+    state.draw()
+  });
   
 }
