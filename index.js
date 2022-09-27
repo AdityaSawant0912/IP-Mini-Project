@@ -9,7 +9,7 @@ let cnv;
 let wasPressed = false;
 let diff = [0, 0];
 // let expression = "(((0+1)*.1.0) +((0.0)*.(1.1)*))"
-let expression = "a+b";
+let expression = "(a+b)+(c+d)";
 
 
 function drawArrow(base, vec) {
@@ -40,7 +40,7 @@ function setup() {
   enfa.calculateTree();
   console.log(enfa.tree);
   console.log(enfa.connections);
-  enfa.generateTree();
+  // enfa.generateTree();
   
 }
 
@@ -67,7 +67,7 @@ function draw() {
   // state1.draw(400, 400);
   // console.log(mousePressed);
   
-  enfa.finalTree.forEach(state => {
+  enfa.tree.forEach(state => {
     state.draw()
   });
   
